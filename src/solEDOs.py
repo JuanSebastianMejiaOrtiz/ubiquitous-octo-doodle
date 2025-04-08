@@ -10,14 +10,18 @@ def plotDiff(sol, timeSol, stats):
 def plot(func, timeSol, stats):
     xVals = np.linspace(0, timeSol, 1000)
     yVals = func(xVals)
-    plt.figure(figsize=(10,5))
     plt.plot(xVals, yVals, label=stats["legend"])
-    plt.title(stats["title"])
-    if stats["legend"]:  # Only show legend if it's not empty
+    if stats["title"]:
+        plt.title(stats["title"])
+    if stats["legend"]:
         plt.legend()
-    plt.grid(stats["grid"])
+    if stats["xLabel"]:
+        plt.xlabel(stats["xLabel"])
+    if stats["grid"]:
+        plt.grid(stats["grid"])
 
-def solve(eq, xIn, c_is, TFINAL, SYMBOL, stats):
+def solve(eq, xIn, c_is, TFINAL, stats, SYMBOL="t"):
     sol = sp.dsolve(eq, ics=c_is)
+    plt.figure()
     plotDiff(sol, TFINAL, stats[0])
     plot(sp.lambdify(SYMBOL, xIn, "numpy"), TFINAL, stats[1])
