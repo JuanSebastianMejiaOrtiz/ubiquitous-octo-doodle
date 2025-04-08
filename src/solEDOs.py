@@ -2,8 +2,8 @@ import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plotDiff(sol, timeSol, stats):
-    t = sp.symbols("t")
+def plotDiff(sol, timeSol, stats, SYMBOL="t"):
+    t = sp.symbols(SYMBOL)
     func = sp.lambdify(t, sol.rhs, 'numpy')
     plot(func, timeSol, stats)
 
@@ -20,7 +20,7 @@ def plot(func, timeSol, stats):
     if stats["grid"]:
         plt.grid(stats["grid"])
 
-def solve(eq, xIn, c_is, TFINAL, stats, SYMBOL="t"):
+def solveAndPlot(eq, xIn, c_is, TFINAL, stats, SYMBOL="t"):
     sol = sp.dsolve(eq, ics=c_is)
     plt.figure()
     plotDiff(sol, TFINAL, stats[0])
