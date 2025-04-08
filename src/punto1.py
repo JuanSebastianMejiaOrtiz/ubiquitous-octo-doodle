@@ -29,7 +29,7 @@ stats = [
 ]
 eq = sp.Eq(d2y + 3*d1y + 2*y(t), x1)
 # eq = sp.Eq(d2y + 3*d1y + 2*y, x1)
-solEDOs.solve(eq, x1, c_is, TFINAL, stats)
+solEDOs.solve_and_plot(eq, x1, c_is, TFINAL, stats)
 
 # Segunda Ecuacion Diferencial
 c_is = {y(0): 0, d1y.subs(t, 0): 0, d2y.subs(t, 0): 0}    #condiciones iniciales
@@ -48,8 +48,9 @@ stats = [
         "xLabel": r"$t$",
     }
 ]
+
 eq = sp.Eq(d3y - 3*d2y + 7*d1y - 5*y(t), x2)
-solEDOs.solve(eq, x2, c_is, TFINAL, stats)
+solEDOs.solve_and_plot(eq, x2, c_is, TFINAL, stats)
 
 # Tercera Ecuacion Diferencial
 c_is = {y(0): 0, d1y.subs(t, 0): 0}    #condiciones iniciales
@@ -69,6 +70,6 @@ stats = [
     }
 ]
 eq = sp.Eq(d2y + 2*d1y + 5*y(t), x3)
-solEDOs.solve(eq, x3, c_is, TFINAL, stats)
+solEDOs.solve_and_plot(eq, x3, c_is, TFINAL, stats)
 
 plt.show()
