@@ -19,6 +19,7 @@ def firstEq(xIn, t, y, d1y, d2y):
     sol = sp.dsolve(eq, ics=c_is)
     plt.figure()
     solEDOs.plotDiff(sol, TFINAL, stats[0])
+    return sol
 
 
 # Segunda Ecuacion Diferencial
@@ -36,6 +37,7 @@ def secondEq(xIn, t, y, d1y, d2y, d3y):
     sol = sp.dsolve(eq, ics=c_is)
     plt.figure()
     solEDOs.plotDiff(sol, TFINAL, stats[0])
+    return sol
 
 
 # Tercera Ecuacion Diferencial
@@ -53,6 +55,7 @@ def thirdEq(xIn, t, y, d1y, d2y):
     sol = sp.dsolve(eq, ics=c_is)
     plt.figure()
     solEDOs.plotDiff(sol, TFINAL, stats[0])
+    return sol
 
 
 def delta(t, a=0.05):
@@ -68,7 +71,7 @@ d3y = sp.diff(y(t), t, 3)
 TFINAL = 10
 x = sp.DiracDelta(t)
 
-firstEq(x, t, y, d1y, d2y)
-secondEq(x, t, y, d1y, d2y, d3y)
-thirdEq(x, t, y, d1y, d2y)
+natSol1 = firstEq(x, t, y, d1y, d2y)
+natSol2 = secondEq(x, t, y, d1y, d2y, d3y)
+natSol3 = thirdEq(x, t, y, d1y, d2y)
 plt.show()
