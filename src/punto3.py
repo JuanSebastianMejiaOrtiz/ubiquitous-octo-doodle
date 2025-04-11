@@ -4,7 +4,7 @@ import solEDOs
 import matplotlib.pyplot as plt
 
 
-# Primera Ecuacion Diferencial
+# First Differential Equation
 def firstEq(xIn, t, y, d1y, d2y):
     c_is = {y(0): 0, d1y.subs(t, 0): 0}
     stats = [
@@ -22,7 +22,7 @@ def firstEq(xIn, t, y, d1y, d2y):
     return sol
 
 
-# Segunda Ecuacion Diferencial
+# Second Differential Equation
 def secondEq(xIn, t, y, d1y, d2y, d3y):
     c_is = {y(0): 0, d1y.subs(t, 0): 0, d2y.subs(t, 0): 0}
     stats = [
@@ -40,7 +40,7 @@ def secondEq(xIn, t, y, d1y, d2y, d3y):
     return sol
 
 
-# Tercera Ecuacion Diferencial
+# Third Differential Equation
 def thirdEq(xIn, t, y, d1y, d2y):
     c_is = {y(0): 0, d1y.subs(t, 0): 0}
     stats = [
