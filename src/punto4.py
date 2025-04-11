@@ -4,9 +4,6 @@ import solEDOs
 import punto3
 
 
-# def plotConvolution(xIn, natSol, TFINAL):
-#     sol = sp.convolution(xIn, natSol.rhs)
-#     sol = sp.simplify(sol)
 def plotConvolution(xIn, natSol, TFINAL, SYMBOL="t"):
     t = sp.symbols(SYMBOL, positive=True)
     tau = sp.symbols(r'\tau', positive=True)
@@ -20,7 +17,7 @@ def plotConvolution(xIn, natSol, TFINAL, SYMBOL="t"):
         "xLabel": r"$t$",
     }
     solEDOs.plot(sp.lambdify(SYMBOL, sol, "numpy"), TFINAL, stats)
-    return sol
+    return sp.simplify(sol)
 
 
 t = sp.symbols("t")
@@ -37,6 +34,6 @@ plt.show()
 conv3 = plotConvolution(x3, punto3.natSol3, TFINAL)
 plt.show()
 
-print(conv1)
-print(conv2)
-print(conv3)
+print("Convolution Solution 1:", conv1)
+print("Convolution Solution 2:", conv2)
+print("Convolution Solution 3:", conv3)
