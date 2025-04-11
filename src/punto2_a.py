@@ -25,7 +25,7 @@ stats = [
     }
 ]
 
-# SEGUNDO SLIT
+# Second LTI
 c_is = {y(0): 0, d1y.subs(t, 0): 0, d2y.subs(t, 0): 0}
 x1 = 10*sp.Heaviside(t)
 x2 = 2*(10*sp.Heaviside(t))
@@ -40,7 +40,7 @@ eq = sp.Eq(d3y - 3*d2y + 7*d1y - 5*y(t), x2)
 sol = sp.dsolve(eq, ics=c_is)
 solEDOs.plotDiff(sol, TFINAL, stats[1])
 
-# TERCER SLIT
+# Third LTI
 c_is = {y(0): 0, d1y.subs(t, 0): 0}
 x1 = 4 + 2*sp.exp(-3*t)
 x2 = 2*(4 + 2*sp.exp(-3*t))

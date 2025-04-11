@@ -10,7 +10,7 @@ d3y = sp.diff(y(t), t, 3)
 
 TFINAL = 10
 
-# Primera Ecuacion Diferencial
+# First LTI
 c_is = {y(0): 0, d1y.subs(t, 0): 0}
 x1 = sp.exp(-t/2) * sp.sin(2*sp.pi*t)
 x2 = 2*sp.exp(-3*t)
