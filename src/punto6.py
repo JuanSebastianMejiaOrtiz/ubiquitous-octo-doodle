@@ -1,18 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr  9 22:21:43 2025
-
-@author: USUARIO
-"""
 import sympy as sp
 import numpy as np
-import solEDOs
-import matplotlib.pyplot as plt
 import punto5
-#punto 6
-s = sp.symbols('s')
+
+
 def routh(p):
-    
     n = len(p) - 1  # degree of polynomial
     print("Degree of polynomial:", n)
 
@@ -25,7 +16,7 @@ def routh(p):
 
     # Initialize first two rows
     M = np.zeros((nfil, ncol))
-    
+
     if n % 2 == 0:
         m = n // 2 + 1
         M[1, m-1] = 0
@@ -37,7 +28,7 @@ def routh(p):
         idx = 2 * i
         if idx < len(p):
             M[0, i] = p[idx]
-        
+
     for i in range(ncol - 1):
         idx = 2 * i + 1
         if idx < len(p):
@@ -64,18 +55,20 @@ def routh(p):
 
     return M, q
 
-H1_expanded=sp.expand(sp.denom(punto5.H1))
-coeff=sp.Poly(H1_expanded, s)
-coeff=coeff.all_coeffs()
+
+s = sp.symbols('s')
+
+H1_expanded = sp.expand(sp.denom(punto5.H1))
+coeff = sp.Poly(H1_expanded, s)
+coeff = coeff.all_coeffs()
 print(routh(coeff))
 
-H2_expanded=sp.expand(sp.denom(punto5.H2))
-coeff=sp.Poly(H2_expanded, s)
-coeff=coeff.all_coeffs()
+H2_expanded = sp.expand(sp.denom(punto5.H2))
+coeff = sp.Poly(H2_expanded, s)
+coeff = coeff.all_coeffs()
 print(routh(coeff))
 
-H3_expanded=sp.expand(sp.denom(punto5.H3))
-coeff=sp.Poly(H3_expanded, s)
-coeff=coeff.all_coeffs()
+H3_expanded = sp.expand(sp.denom(punto5.H3))
+coeff = sp.Poly(H3_expanded, s)
+coeff = coeff.all_coeffs()
 print(routh(coeff))
-
